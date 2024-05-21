@@ -38,6 +38,7 @@ router.post('/register', async (req, res) => {
 })
 
 router.post('/login', async(req, res) => {
+    console.log("reqbody", req?.body)
     const email = req?.body?.email;
     const password = req?.body?.password;
     if (!email) {
