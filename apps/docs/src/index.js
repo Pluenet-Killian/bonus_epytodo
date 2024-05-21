@@ -7,7 +7,8 @@ const authRouter = require('./routes/auth/auth')
 const userRouter = require('./routes/user/user')
 const todoRouter = require('./routes/todos/todos')
 const authMiddleware = require('./middleware/auth')
-
+let cors = require('cors')
+app.use(cors())
 app.use(bodyParser.json())
 app.use('/', authRouter)
 app.use(authMiddleware.isUserConnected)
@@ -15,4 +16,5 @@ app.use('/', userRouter)
 app.use('/', todoRouter)
 
 app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
 })
